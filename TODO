@@ -1,0 +1,127 @@
+ga
+lstm
+drl
+
+---
+
+lstm : so I know that I need to predict close prices, most probably in the window length of 50 since of 1 it might be overfitting.
+		- What I wanted to do is just predict the major price trends in the market. Detect either an uptrend or a downtrend. 
+		- This needs to be done on minute data to make it more robust
+		- The columns I will include in features will be : Close, most accurate signals, formatted position, Volume, High, Low
+		- I dont really see a need for optimization at this point, maybe when I upgrade my deveice.
+		- For now my target is an average of 30% profit per month or two.
+
+		- After training the model, evaluate it and save it.
+		- Question is, how will I get performance measures?
+
+
+drl : is it necessary to have lstm to improve performance, and if so, how to I implement lstm to it?
+		- The bot needs to make as few trades as possible per day. most preferrably, at an average of 20 - 30
+
+
+-------------------
+
+plan
+--
+
+Data gathering :- collect data for 5 forex pairs: ---+
+					- EurUsd ---+
+					- EurGbp ---+
+					- EurJpy ---+
+					- AudUSd ---+
+					- GPBUSD ---+
+
+
+Data preprocessing : -
+	create linear regression model, gradient boosting and random forests for a test 
+	
+	- run the model through ga ---+
+	- add position feature ---+
+
+		- EurUsd ---+
+		- EurGbp ---+
+		- EurJpy ---+
+		- AudUSd ---+
+		- GPBUSD ---+
+
+
+	- bring it to lstm ---+
+		- preprocess the data into time frames ---+
+		- improve performance --k
+		- measure overall performance ---+ 0.74 MAPE// overally the model predicted poorly. This may be due to data issues and stuff but its no reason to give up. Lets continue. 
+
+	- share it to DRL ---+
+		write the code ---
+		run the code ---
+		gain insights --
+
+	- validate the models
+
+
+modelling:
+	- Create and evaluate an lstm model
+	- Create and evaluate a DRL model
+
+Testing:
+	
+	backtesting:
+		Profit:
+		Sharpe ratio:
+		Alpha:
+		Drawdown:
+
+
+	papertrading:
+
+Deploy:
+	- Ship using docker
+	- Deploy to AWS using lambda and S3
+
+
+-----
+
+Triggers
+---
+
+Novelty
+Concentration
+Upredactibility
+Awe
+Complexity
+
+
+Motivators
+--
+
+Curiosity
+Passion
+Purpose
+Autonomy
+Mastery
+
+
+--------------
+
+:: 17/06/23
+reduce data size... to three months 1 minute data...+
+add date column to the data as index col
+preprocess the data..-+
+
+...move to jupyter-notebook
+
+// for next time
+to feature engineering, add linear regression, gradient descent and random forests
+is best data with best values/ high scores
+
+
+----
+
+Thoughts...
+
+maybe the feature engineering is overfitting the data.. we wont know unless we add performance metrics
+In an earlier project, I utilized two ema for 50, 150 and they were picking up the trends quite well...
+
+What if, I know it may also overfit, but, I pick only the params which would provide the highest profits in the long run. Instead of constantly fluctuating .
+
+performance metrics all the way
+
