@@ -10,7 +10,6 @@ from rl.util import *
 
 import tensorflow as tf
 # tf.config.experimental_run_functions_eagerly(True)
-# tf.compat.v1.executing_eagerly_outside_functions()
 
 def mean_q(y_true, y_pred):
     return K.mean(K.max(y_pred, axis=-1))
@@ -290,7 +289,7 @@ class DQNAgent(AbstractDQNAgent):
             assert reward_batch.shape == (self.batch_size,)
             assert terminal1_batch.shape == reward_batch.shape
             assert len(action_batch) == len(reward_batch)
-            # print(state1_batch)
+            print(state1_batch)
             # Compute Q values for mini-batch update.
             if self.enable_double_dqn:
                 # According to the paper "Deep Reinforcement Learning with Double Q-learning"
@@ -321,6 +320,8 @@ class DQNAgent(AbstractDQNAgent):
                 q_batch = tf.reduce_max(target_q_values, axis=1)
                 q_batch = tf.squeeze(q_batch)
             assert q_batch.shape == (self.batch_size,)
+
+            # ****
             targets = tf.zeros((self.batch_size, self.nb_actions))
             dummy_targets = tf.zeros((self.batch_size,))
             masks = tf.zeros((self.batch_size, self.nb_actions))
@@ -332,10 +333,25 @@ class DQNAgent(AbstractDQNAgent):
             discounted_reward_batch *= terminal1_batch
             assert discounted_reward_batch.shape == reward_batch.shape
             Rs = reward_batch + discounted_reward_batch
+            # for idx, (target, mask, R, action) in enumerate(zip(targets, masks, Rs, action_batch)):
+            #     target[action] = R  # update action with estimated accumulated reward
+            #     dummy_targets[idx] = R
+            #     mask[action] = 1.  # enable loss for this specific action
+            # targets = np.array(targets).astype('float32')
+            # masks = np.array(masks).astype('float32')
+            # targets = tf.cast(targets, dtype=tf.float32)
+            # masks = tf.cast(masks, dtype=tf.float32)
 
+            # Create indices tensor
             indices = tf.stack([tf.range(self.batch_size), action_batch], axis=1)
+
+            # Update targets tensor
             targets = tf.tensor_scatter_nd_update(targets, indices, Rs)
+
+            # Update dummy_targets tensor
             dummy_targets = tf.tensor_scatter_nd_update(dummy_targets, tf.expand_dims(tf.range(self.batch_size), axis=1), Rs)
+
+            # Update masks tensor
             masks = tf.tensor_scatter_nd_update(masks, indices, tf.ones_like(Rs))
 
             targets = tf.cast(targets, dtype=tf.float32)

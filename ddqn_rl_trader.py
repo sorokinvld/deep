@@ -3,7 +3,7 @@ import numpy as np
 # import keras
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Activation, Flatten, LSTM
-from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.optimizers.legacy import Adam
 
 
 # keras-rl agent
@@ -21,7 +21,8 @@ from util import NormalizerProcessor
 # tfl.compat.v1.experimental.output_all_intermediates(True)
 
 import tensorflow as tf
-tf.config.experimental_run_functions_eagerly(True)
+# tf.config.experimental_run_functions_eagerly(True)
+tf.compat.v1.experimental.output_all_intermediates(True)
 
 def create_model(shape, nb_actions):
     model = Sequential()

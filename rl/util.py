@@ -5,9 +5,6 @@ import tensorflow.keras.optimizers as optimizers
 import tensorflow.keras.backend as K
 import tensorflow as tf
 
-import tensorflow as tf
-tf.config.experimental_run_functions_eagerly(True)
-
 
 def clone_model(model, custom_objects={}):
     # Requires Keras 1.0.7 since get_config has breaking changes.
@@ -86,7 +83,7 @@ def huber_loss(y_true, y_pred, clip_value):
 
 class AdditionalUpdatesOptimizer(optimizers.Optimizer):
     def __init__(self, optimizer, additional_updates):
-        super().__init__(optimizer.name)
+        super().__init__(optimizer._name)
         self.optimizer = optimizer
         self.additional_updates = additional_updates
 
