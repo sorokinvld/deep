@@ -51,18 +51,19 @@ Data preprocessing : -
 		- measure overall performance ---+ 0.74 MAPE// overally the model predicted poorly. This may be due to data issues and stuff but its no reason to give up. Lets continue. 
 
 	- share it to DRL ---+
-		write the code ---
-		run the code ---
-		gain insights --
+		write the code ---+
+		run the code ---+
+		gain insights ---
 
-	- validate the models
+	- validate the models --
 
 
 modelling:
-	- Create and evaluate an lstm model
-	- Create and evaluate a DRL model
-
+	- Create and evaluate an lstm model ---
+	- Create and evaluate a DRL model ---
+ 
 Testing:
+
 	
 	backtesting:
 		Profit:
@@ -70,6 +71,12 @@ Testing:
 		Alpha:
 		Drawdown:
 
+	Optimize : 
+		Using optimizstion techniques such as :
+			PSO
+			QPSO
+			Bayesian
+		More well preprocessed information
 
 	papertrading:
 
@@ -104,14 +111,14 @@ Mastery
 
 :: 17/06/23
 reduce data size... to three months 1 minute data...+
-add date column to the data as index col
-preprocess the data..-+
+add date column to the data as index col ---+
+preprocess the data ---+
 
-...move to jupyter-notebook
+...move to jupyter-notebook ---
 
 // for next time
-to feature engineering, add linear regression, gradient descent and random forests
-is best data with best values/ high scores
+to feature engineering, add linear regression, gradient descent and random forests ///
+is best data with best values/ high scores --
 
 
 ----
