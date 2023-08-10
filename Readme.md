@@ -141,9 +141,6 @@ def create_model(shape, nb_actions):
 Wow ! 29 fold return, 3.67 reward !   
 ! Disclaimer : if may have overfitted :(
 
-## Authors
-
-* **Lee Hankyol** - *Initial work* - [deep_rl_trader](https://github.com/miroblog/deep_rl_trader)
 
 ## License
 
