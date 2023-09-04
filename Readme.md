@@ -1,6 +1,6 @@
 # Deep RL Trader (Duel DQN) Implemented using Keras-RL
 
-This repo contains 
+This repo contains  
 1. Trading environment(OpenAI Gym) for trading crypto currency  
 2. Duel Deep Q Network  
 Agent is implemented using `keras-rl`(https://github.com/keras-rl/keras-rl)     
