@@ -5,7 +5,7 @@ This repo contains
 2. Duel Deep Q Network  
 Agent is implemented using `keras-rl`(https://github.com/keras-rl/keras-rl)     
 
-Agent is expected to learn useful action sequences to maximize profit in a given environment.  
+Agent is expected to learn useful action sequences to maximize profit in a given environment. 
 Environment limits agent to either buy, sell, hold stock(coin) at each step.  
 If an agent decides to take a  
 * LONG position it will initiate sequence of action such as `buy- hold- hold- sell`    
