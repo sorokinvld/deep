@@ -4,7 +4,7 @@ This repo contains
 1. Trading environment(OpenAI Gym) for trading crypto currency  
 2. Duel Deep Q Network  
 Agent is implemented using `keras-rl`(https://github.com/keras-rl/keras-rl)     
- 
+
 Agent is expected to learn useful action sequences to maximize profit in a given environment.  
 Environment limits agent to either buy, sell, hold stock(coin) at each step.  
 If an agent decides to take a 
